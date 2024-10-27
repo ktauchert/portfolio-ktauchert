@@ -21,10 +21,10 @@ type ProjectsDataType = {
   title: string;
   image: SanityImage;
   year: number;
-  link: string;
+  projectLink: string;
   description: string;
   stack: string[];
-}
+};
 
 const Projects = (props: Props) => {
   const [projectsData, setProjectsData] = useState<ProjectsDataType[]>([]);
@@ -41,7 +41,6 @@ const Projects = (props: Props) => {
       }`;
       const result = await client.fetch(query);
       setProjectsData(result);
-      console.log(result);
     };
 
     fetchData();
@@ -50,15 +49,30 @@ const Projects = (props: Props) => {
   const memoProjectsData = useMemo(() => projectsData, [projectsData]);
 
   return (
-    <section id="projects" className="min-h-screen">
-      {
-        memoProjectsData?.sort((a,b) => b.year - a.year).map((project) => {
-        
-          return(
-            <ProjectInfoCard title={project.title} image={project.image} year={project.year} link={project.link} description={project.description} stack={project.stack} />
-          )
-        })
-      }
+    <section id="projects" className="min-h-screen mb-10">
+      <div className="page-title w-full">
+        <h2 className="text-center text-4xl text-orange-600 text-bold uppercase tracking-wider my-20">
+          Projects
+        </h2>
+      </div>
+      <div className="page-content flex w-full flex-wrap justify-evenly">
+        {memoProjectsData
+          ?.sort((a, b) => b.year - a.year)
+          .map((project, idx) => {
+            return (
+              <ProjectInfoCard
+                index={idx}
+                key={`project-${idx}`}
+                title={project.title}
+                image={project.image}
+                year={project.year}
+                link={project.projectLink}
+                description={project.description}
+                stack={project.stack}
+              />
+            );
+          })}
+      </div>
     </section>
   );
 };

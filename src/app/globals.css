@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   section {
     @apply max-w-[1280px];
@@ -9,7 +13,54 @@
 }
 
 @layer components {
+  #sanity {
+    @apply w-[1280px];
+  }
+  #navigation {
+    @apply fixed top-0 w-full h-16 flex flex-col justify-center transition-all items-center;
+    &.scrolling {
+      @apply bg-zinc-100/20 backdrop-blur-sm z-10;
+    }
+  }
   .nav-link {
     @apply hover:text-orange-500 hover:cursor-pointer transition-all;
   }
+
+  .rich-content {
+    p {
+      @apply text-xl my-3;
+
+      a {
+        @apply text-cyan-600 hover:text-orange-600 my-1 transition-all;
+      }
+    }
+  }
+
+  .info-wrapper {
+    @apply mb-5;
+    .info-header {
+      @apply text-xl font-bold mb-2;
+    }
+    .info-body {
+      @apply font-thin;
+      strong {
+        @apply font-bold mr-2;
+      }
+    }
+  }
+}
+#impressum p {
+  margin: 5px 0;
+}
+#impressum h1,
+#impressum h2 {
+  margin: 5px 0;
+  font-size: 30px;
+  font-weight: 600;
+}
+#impressum h3,
+#impressum h4 {
+  margin: 5px 0;
+  font-size: 20px;
+  font-weight: 600;
 }

@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from "react";
+import { motion } from "framer-motion";
 type Props = {
   from: string;
   until: string;
@@ -7,37 +7,71 @@ type Props = {
   company: string;
   subjects: string[];
   stack: string[];
-}
+};
 
-function CareerInfo({from = 'Okt. 2000', until = 'Now', title = "Entrepreneur", company = " Tha Worldo", subjects, stack}: Props) {
+function CareerInfo({
+  from = "Okt. 2000",
+  until = "Now",
+  title = "Entrepreneur",
+  company = " Tha Worldo",
+  subjects,
+  stack,
+}: Props) {
   return (
-    <article className='flex' >
-      <div className="time-info">
+    <article className="my-10 text-zinc-100-">
+      <div className="time-info w-full flex">
         <div className="w-1/4">
-          <span>{from} - {until}</span>
+          <span className="text-lg text-zinc-100">
+            {from} - {until}
+          </span>
         </div>
-        <div className="w-3/4">
-          <h4 className='career-title'>
-            {title} - <span>{company}</span>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 1.5, delay: 0 }}
+          viewport={{ once: true }}
+          variants={{
+            visible: {
+              x: 0,
+              opacity: 1,
+            },
+            hidden: {
+              x: 100,
+              opacity: 0,
+            },
+          }}
+          className="w-3/4"
+        >
+          <h4 className="career-title text-cyan-400 text-lg font-semibold">
+            {title} - <span className="italic text-zinc-100">{company}</span>
           </h4>
-          <div className="career-content">
-            <ul>
-              {
-                subjects && subjects.map((subject, idx) => <li key={`sitem-${idx}`}>{subject}</li>)
-              }
+          <div className="career-content my-5">
+            <ul className="list-disc ml-5 text-lg">
+              {subjects &&
+                subjects.map((subject, idx) => (
+                  <li key={`sitem-${idx}`} className="my-1">
+                    {subject}
+                  </li>
+                ))}
             </ul>
           </div>
           <div className="career-stack">
-            <div className='inline-block'>Stack 
-            {
-              stack && stack.map((item, idx) => <span key={`stack-item${idx}`}>{item}</span>)
-            }
+            <div className="inline-block">
+              {stack &&
+                stack.map((item, idx) => (
+                  <span
+                    key={`stack-item${idx}`}
+                    className="mr-2 rounded bg-zinc-950 px-2 py-1 text-sm font-semibold text-cyan-600"
+                  >
+                    {item}
+                  </span>
+                ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </article>
-  )
+  );
 }
 
-export default CareerInfo
+export default CareerInfo;

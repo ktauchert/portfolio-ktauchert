@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import CareerInfo from "../CareerInfo";
 
 type CareerDataType = {
+  position: number;
   from: string;
   until: string;
   title: string;
@@ -11,7 +12,7 @@ type CareerDataType = {
   subjects: string[];
   stack: string[];
 };
-type CareerData = CareerDataType[]
+type CareerData = CareerDataType[];
 
 const Career = (props: {}) => {
   const [careerData, setCareerData] = useState<CareerData>();
@@ -19,6 +20,7 @@ const Career = (props: {}) => {
   useEffect(() => {
     const fetchData = async () => {
       const query = `*[_type == "career"]{
+        position,
         from,
         until,
         title,
@@ -28,7 +30,6 @@ const Career = (props: {}) => {
       }`;
       const result = await client.fetch(query);
       setCareerData(result);
-      console.log(result);
     };
 
     fetchData();
@@ -36,14 +37,26 @@ const Career = (props: {}) => {
 
   const memoCareerData = useMemo(() => careerData, [careerData]);
   return (
-    <section id="career" className="min-h-screen">
+    <section id="career" className="min-h-screen mb-10">
       <div className="page-title">
-        <h2>Career</h2>
+        <h2 className="text-center text-4xl text-orange-600 uppercase tracking-wider my-20">
+          Career
+        </h2>
       </div>
       <div className="page-content">
-        {careerData && careerData.map((data, idx) => (
-          <CareerInfo from={data.from} until={data.until} title={data.title} company={data.company}subjects={data.subjects} stack={data.stack} />
-        ))}
+        {memoCareerData
+          ?.sort((a, b) => a.position - b.position)
+          .map((data, idx) => (
+            <CareerInfo
+              key={`info-${idx}`}
+              from={data.from}
+              until={data.until}
+              title={data.title}
+              company={data.company}
+              subjects={data.subjects}
+              stack={data.stack}
+            />
+          ))}
       </div>
     </section>
   );

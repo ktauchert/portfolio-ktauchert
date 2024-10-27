@@ -2,16 +2,13 @@
 import { Typewriter } from "react-simple-typewriter";
 // import PortableText from "react-portable-text";
 import { client } from "@/sanity/lib/client";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { PortableText } from "@portabletext/react";
+import { useProgress } from "@react-three/drei";
+import LoadingBar from "../LoadingBar";
+import ThreeScene from "../scene/ThreeScene";
+import { motion } from "framer-motion";
 
-type NodeType = {
-  url: string;
-  label: string;
-};
-type ButtonNode = {
-  node: NodeType;
-};
 type HeroDataType = {
   name: string;
   typewriterWords: string[];
@@ -27,6 +24,8 @@ export default function HeroPage() {
     welcomeMessage: "",
     richContent: "",
   });
+  const { progress } = useProgress();
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,40 +37,81 @@ export default function HeroPage() {
         }`;
 
       const result = await client.fetch(query);
-      // console.log(result);
       setHeroData(result);
-      // return heroData;
     };
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (progress >= 99) {
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 2300);
+    }
+  }, [progress]);
+
   const memorizedHeroData = useMemo(() => heroData, [heroData]);
   return (
-    <section id="hero" className="hero min-h-screen mt-20">
-      <h1>{memorizedHeroData?.name}</h1>
+    <section id="hero" className="hero min-h-screen flex mb-10">
+      <motion.article
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 3,
+          delay: 0,
+        }}
+        id="welcome"
+        className="w-1/2 flex flex-col justify-center items-start font-thin"
+      >
+        <h1 className="text-center lg:text-left text-5xl lg:text-6xl font-thin tracking-tight text-zinc-100 w-full overflow-hidden">
+          {memorizedHeroData?.name}
+        </h1>
 
-      <div className="typewriter">
-        <Typewriter
-          words={memorizedHeroData?.typewriterWords ?? []}
-          loop={true}
-          cursor
-          cursorStyle="_"
-          typeSpeed={70}
-          deleteSpeed={50}
-          delaySpeed={1000}
-        />
-      </div>
-
-      <p className="welcome-message">{memorizedHeroData?.welcomeMessage}</p>
-
-      <div className="rich-content">
-        {memorizedHeroData?.richContent && (
-          <PortableText
-            value={memorizedHeroData.richContent}
-            
+        <div className="py-10 bg-gradient-to-r from-orange-500 via-zinc-500 to-cyan-500 bg-clip-text text-transparent text-4xl animate-[pulse_6s_linear_infinite]">
+          <Typewriter
+            words={memorizedHeroData?.typewriterWords ?? []}
+            loop={true}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
           />
-        )}
-      </div>
+        </div>
+
+        <p className="welcome-message text-xl py-5">
+          {memorizedHeroData?.welcomeMessage}
+        </p>
+
+        <div className="rich-content">
+          {memorizedHeroData?.richContent && (
+            <PortableText value={memorizedHeroData.richContent} />
+          )}
+        </div>
+      </motion.article>
+      <article id="scene" className="w-1/2 flex justify-center items-center">
+        <div className="w-full aspect-square ">
+          <Suspense fallback={null}>
+            {isLoaded ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  duration: 2,
+                  delay: 0,
+                }}
+                className="w-full h-full"
+              >
+                <ThreeScene />
+              </motion.div>
+            ) : (
+              <>
+                <LoadingBar progress={progress} />
+              </>
+            )}
+          </Suspense>
+        </div>
+      </article>
     </section>
   );
 }
