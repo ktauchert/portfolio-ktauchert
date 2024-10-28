@@ -4,14 +4,13 @@ import Link from "next/link";
 import React, { useEffect, useMemo, useState } from "react";
 import IconLink from "./IconLink";
 
-type Props = {};
 interface CvDocument {
   _id: string;
   _type: "cv";
   title: string;
   fileUrl: string;
 }
-const Footer = (props: Props) => {
+const Footer = () => {
   const [contactData, setContactData] = useState<CvDocument>();
 
   useEffect(() => {

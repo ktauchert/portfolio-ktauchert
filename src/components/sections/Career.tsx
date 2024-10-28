@@ -14,7 +14,7 @@ type CareerDataType = {
 };
 type CareerData = CareerDataType[];
 
-const Career = (props: {}) => {
+const Career = () => {
   const [careerData, setCareerData] = useState<CareerData>();
 
   useEffect(() => {

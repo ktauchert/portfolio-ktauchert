@@ -12,7 +12,7 @@ export const ContactForm: React.FC = () => {
     setError(null);
     e.preventDefault();
 
-    const honeypot = (form.current as any).callme.value;
+    const honeypot = form.current?.callme.value;
     if (honeypot || !form.current) {
       setSending(false);
       return;

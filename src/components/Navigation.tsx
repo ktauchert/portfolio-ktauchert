@@ -4,9 +4,8 @@ import Cat from "./logo/CatLogo";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-type Props = {};
 
-const Navigation = (props: Props) => {
+const Navigation = () => {
   const [activeSection, setActiveSection] = useState("");
   const [screenRatio, setScreenRatio] = useState(0);
 

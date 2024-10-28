@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./CatLogo.module.css";
 
 export default function Cat({ scale }: { scale: number }) {
-  let scaleString = `scale(${scale})`;
+  const scaleString = `scale(${scale})`;
   return (
     <div className="catIconContainer">
       <div style={{ transform: scaleString }} className={styles.catIcon}>
@@ -16,7 +16,7 @@ export default function Cat({ scale }: { scale: number }) {
         <div className={styles.hair2}></div>
         <div className={styles.hair3}></div>
         <div className={styles.hair4}></div>
-        <div className={styles.miau}>"Miau"</div>
+        <div className={styles.miau}>Miau</div>
       </div>
     </div>
   );

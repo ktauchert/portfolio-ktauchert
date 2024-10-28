@@ -1,10 +1,8 @@
 "use client";
 import { client } from "@/sanity/lib/client";
-import { useNextSanityImage, UseNextSanityImageProps } from "next-sanity-image";
 import React, { useEffect, useMemo, useState } from "react";
 import ProjectInfoCard from "../ProjectInfoCard";
 
-type Props = {};
 interface SanityImage {
   _type: string;
   asset: {
@@ -26,7 +24,7 @@ type ProjectsDataType = {
   stack: string[];
 };
 
-const Projects = (props: Props) => {
+const Projects = () => {
   const [projectsData, setProjectsData] = useState<ProjectsDataType[]>([]);
 
   useEffect(() => {

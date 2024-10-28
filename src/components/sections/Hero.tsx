@@ -3,7 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 // import PortableText from "react-portable-text";
 import { client } from "@/sanity/lib/client";
 import { Suspense, useEffect, useMemo, useState } from "react";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextBlock } from "@portabletext/react";
 import { useProgress } from "@react-three/drei";
 import LoadingBar from "../LoadingBar";
 import ThreeScene from "../scene/ThreeScene";
@@ -13,17 +13,12 @@ type HeroDataType = {
   name: string;
   typewriterWords: string[];
   welcomeMessage: string;
-  richContent: any;
+  richContent: PortableTextBlock;
 };
 
 export default function HeroPage() {
   // Fetch data in the component
-  const [heroData, setHeroData] = useState<HeroDataType>({
-    name: "",
-    typewriterWords: [""],
-    welcomeMessage: "",
-    richContent: "",
-  });
+  const [heroData, setHeroData] = useState<HeroDataType>();
   const { progress } = useProgress();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 

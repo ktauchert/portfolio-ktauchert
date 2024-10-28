@@ -1,14 +1,12 @@
 "use client";
 import { client } from "@/sanity/lib/client";
-import imageUrlBuilder from "@sanity/image-url";
-import { SanityAsset } from "@sanity/image-url/lib/types/types";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { urlFor } from "@/sanity/lib/imgBuilder";
 
-type Props = {};
+
 interface SanityImage {
   _type: string;
   asset: {
@@ -46,7 +44,7 @@ interface AboutDataType {
   skills: SanityBlock;
 }
 
-const AboutPage = (props: Props) => {
+const AboutPage = () => {
   const [aboutData, setAboutData] = useState<AboutDataType>();
 
   useEffect(() => {
