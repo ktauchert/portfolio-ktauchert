@@ -29,10 +29,9 @@ html {
   .rich-content {
     p {
       @apply text-xl my-3;
-
-      a {
-        @apply text-cyan-600 hover:text-orange-600 my-1 transition-all;
-      }
+    }
+    p a {
+      @apply text-cyan-600 hover:text-orange-600 my-1 transition-all;
     }
   }
 

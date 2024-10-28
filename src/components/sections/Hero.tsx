@@ -78,7 +78,7 @@ export default function HeroPage() {
           {memorizedHeroData?.welcomeMessage}
         </p>
 
-        <div className="rich-content">
+        <div className="rich-content text-zinc-100">
           {memorizedHeroData?.richContent && (
             <PortableText value={memorizedHeroData.richContent} />
           )}
