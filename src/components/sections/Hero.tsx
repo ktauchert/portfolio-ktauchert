@@ -41,7 +41,7 @@ export default function HeroPage() {
     if (progress >= 99) {
       setTimeout(() => {
         setIsLoaded(true);
-      }, 2300);
+      }, 2600);
     }
   }, [progress]);
 
@@ -61,11 +61,14 @@ export default function HeroPage() {
         id="welcome"
         className="lg:w-1/2 w-full flex flex-col justify-center items-start font-thin"
       >
-        <h1 className="text-center lg:text-left lg:text-5xl text-3xl font-thin tracking-tight text-zinc-100 w-full overflow-hidden">
+        <h1 className="text-center lg:text-left md:text-5xl text-4xl font-normal tracking-tight text-zinc-100 w-full overflow-hidden">
           {memorizedHeroData?.name}
         </h1>
 
-        <div className="py-10 bg-gradient-to-r from-orange-500 via-zinc-500 to-cyan-500 bg-clip-text text-transparent lg:text-4xl text-2xl animate-[pulse_6s_linear_infinite] text-center lg:text-left w-full">
+        <div
+          id="typewriter-container"
+          className="py-10 bg-gradient-to-r from-orange-500 to-cyan-500 bg-clip-text text-transparent lg:text-4xl text-3xl animate-[pulse_6s_linear_infinite] text-center lg:text-left w-full"
+        >
           {memorizedHeroData && (
             <Typewriter
               words={memorizedHeroData?.typewriterWords ?? [""]}

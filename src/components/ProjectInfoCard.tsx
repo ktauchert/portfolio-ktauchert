@@ -55,12 +55,12 @@ const ProjectInfoCard = ({
           opacity: 0,
         },
       }}
-      className="project-card w-[320px] lg:w-[480px] flex flex-col items-start m-7"
+      className="project-card w-[320px] lg:w-[360px] flex flex-col items-start m-7"
     >
-      <h4 className="project-title text-2xl text-cyan-600 self-center mb-5">
+      <h4 className="project-title text-2xl text-cyan-600 self-center mb-5 font-semibold">
         {title}
       </h4>
-      <div className="project-image h-[240px] overflow-hidden rounded-md">
+      <div className="project-image h-[200px] overflow-hidden rounded-md">
         {imageProps ? (
           <Image
             src={imageProps?.src ?? ""}
@@ -70,7 +70,7 @@ const ProjectInfoCard = ({
             placeholder="empty"
           />
         ) : (
-          <div className="w-[320px] lg:w-[480px] h-full bg-zinc-100/20 backdrop-blur-sm flex justify-center items-center">
+          <div className="w-[320px] lg:w-[360px] h-full bg-zinc-100/20 backdrop-blur-sm flex justify-center items-center">
             No Image
           </div>
         )}

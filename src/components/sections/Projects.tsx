@@ -49,8 +49,8 @@ const Projects = () => {
   return (
     <section id="projects" className="min-h-screen mb-10">
       <div className="page-title w-full">
-        <h2 className="text-center text-4xl text-orange-600 text-bold uppercase tracking-wider my-20">
-          Projects
+        <h2 className="text-center text-4xl text-orange-600 text-bold uppercase tracking-wider my-20 font-bold">
+          Projekte
         </h2>
       </div>
       <div className="page-content flex w-full flex-wrap justify-evenly">

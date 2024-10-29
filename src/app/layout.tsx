@@ -4,7 +4,6 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-
 const montLight = localFont({
   src: "./fonts/Montserrat-Light.ttf",
   variable: "--mont-light",
@@ -37,7 +36,7 @@ export default function RootLayout({
         <header>
           <Navigation />
         </header>
-        <main className="lg:mx-auto flex flex-col justify-center max-w-[1280px] mx-5 lg:mt-0 mt-[150px]">
+        <main className="lg:mx-auto flex flex-col justify-center max-w-[1280px] mx-5 lg:mt-0 mt-[150px] overflow-hidden">
           {children}
         </main>
         <footer>

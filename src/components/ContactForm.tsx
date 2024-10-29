@@ -17,15 +17,20 @@ export const ContactForm: React.FC = () => {
       setSending(false);
       return;
     }
-
     emailjs
-      .sendForm("service_sbxbixk", "template_m6y42ra", form.current, {
-        publicKey: "iy7zxcwTCjslZKTss",
-      })
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        form.current,
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
+        }
+      )
       .then(
         () => {
           console.log("SUCCESS!");
           setSending(false);
+          form.current?.reset();
         },
         (error) => {
           console.log("FAILED...", error.text, error);

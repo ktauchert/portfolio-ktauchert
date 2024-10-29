@@ -48,6 +48,9 @@ html {
     }
   }
 }
+#typewriter-container span:nth-child(2) {
+  color: #06b6d4 !important;
+}
 #impressum p {
   margin: 5px 0;
 }

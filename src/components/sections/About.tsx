@@ -6,7 +6,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { urlFor } from "@/sanity/lib/imgBuilder";
 
-
 interface SanityImage {
   _type: string;
   asset: {
@@ -68,8 +67,8 @@ const AboutPage = () => {
   return (
     <section id="about" className="min-h-screen ">
       <div className="page-title w-full">
-        <h2 className="text-center text-4xl text-orange-600 text-bold uppercase tracking-wider my-20">
-          About <span className="text-orange-500">Me</span>
+        <h2 className="text-center text-4xl text-orange-600 uppercase tracking-wider my-20 font-bold">
+          Über <span className="text-orange-500">Mich</span>
         </h2>
       </div>
       <div className="page-content flex flex-wrap justify-center items-center w-full overflow-hidden">

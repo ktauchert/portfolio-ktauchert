@@ -44,7 +44,7 @@ const Navigation = () => {
 
   return (
     <nav id="navigation" className={` ${screenRatio >= 1 ? "scrolling" : ""}`}>
-      <div className="max-w-[1280px] w-full flex lg:justify-between h-full lg:items-center lg:flex-row flex-col">
+      <div className="max-w-[1280px] w-full flex md:justify-between h-full lg:items-center md:flex-row flex-col px-5">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -52,7 +52,7 @@ const Navigation = () => {
             duration: 1,
             delay: 0,
           }}
-          className="brand-logo-name flex items-center lg:justify-start justify-between"
+          className="brand-logo-name flex items-center md:justify-start justify-between"
         >
           <Cat scale={0.6} />
           <Link href={`/#`}>
@@ -75,32 +75,32 @@ const Navigation = () => {
             delay: 0,
           }}
           id="nav-links"
-          className="flex gap-4 bg-gradient-to-r from-orange-500 via-zinc-500 to-cyan-500 bg-clip-text text-transparent text-xl my-auto h-full items-center justify-center"
+          className="flex gap-4 bg-gradient-to-r from-orange-500 via-zinc-500 to-cyan-500 bg-clip-text text-transparent text-lg my-auto h-full items-center justify-center"
         >
           <Link
             href={"/#about"}
-            className={` ${activeSection === "about" ? "text-orange-400" : "text-zinc-100"} transition-all hover:text-orange-400 hover:cursor-pointer`}
+            className={` ${activeSection === "about" ? "text-orange-400 font-bold" : "text-zinc-100"} transition-all hover:text-orange-400 hover:font-bold hover:cursor-pointer`}
           >
-            About
+            Über Mich
           </Link>
 
           <Link
             href={"/#projects"}
-            className={` ${activeSection === "projects" ? "text-orange-400" : "text-zinc-100"} transition-all hover:text-orange-400 hover:cursor-pointer`}
+            className={` ${activeSection === "projects" ? "text-orange-400 font-bold" : "text-zinc-100"} transition-all hover:text-orange-400 hover:font-bold hover:cursor-pointer`}
           >
-            Projects
+            Projekte
           </Link>
           <Link
             href={"/#career"}
-            className={` ${activeSection === "career" ? "text-orange-400" : "text-zinc-100"} transition-all hover:text-orange-400 hover:cursor-pointer`}
+            className={` ${activeSection === "career" ? "text-orange-400 font-bold" : "text-zinc-100"} transition-all hover:text-orange-400 hover:font-bold hover:cursor-pointer`}
           >
-            Career
+            Karriere
           </Link>
           <Link
             href={"/#contact"}
-            className={` ${activeSection === "contact" ? "text-orange-400" : "text-zinc-100"} transition-all hover:text-orange-400 hover:cursor-pointer`}
+            className={` ${activeSection === "contact" ? "text-orange-400 font-bold" : "text-zinc-100"} transition-all hover:text-orange-400 hover:font-bold hover:cursor-pointer`}
           >
-            Contact
+            Kontakt
           </Link>
         </motion.div>
       </div>

@@ -39,8 +39,8 @@ const Career = () => {
   return (
     <section id="career" className="min-h-screen mb-10">
       <div className="page-title">
-        <h2 className="text-center text-4xl text-orange-600 uppercase tracking-wider my-20">
-          Career
+        <h2 className="text-center text-4xl text-orange-600 uppercase tracking-wider my-20 font-bold">
+          Karriere
         </h2>
       </div>
       <div className="page-content">
