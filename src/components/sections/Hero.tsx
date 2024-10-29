@@ -47,7 +47,10 @@ export default function HeroPage() {
 
   const memorizedHeroData = useMemo(() => heroData, [heroData]);
   return (
-    <section id="hero" className="hero min-h-screen flex mb-10">
+    <section
+      id="hero"
+      className="hero min-h-screen flex flex-col items-center lg:flex-row  mb-10 "
+    >
       <motion.article
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -56,25 +59,27 @@ export default function HeroPage() {
           delay: 0,
         }}
         id="welcome"
-        className="w-1/2 flex flex-col justify-center items-start font-thin"
+        className="lg:w-1/2 w-full flex flex-col justify-center items-start font-thin"
       >
-        <h1 className="text-center lg:text-left text-5xl lg:text-6xl font-thin tracking-tight text-zinc-100 w-full overflow-hidden">
+        <h1 className="text-center lg:text-left lg:text-5xl text-3xl font-thin tracking-tight text-zinc-100 w-full overflow-hidden">
           {memorizedHeroData?.name}
         </h1>
 
-        <div className="py-10 bg-gradient-to-r from-orange-500 via-zinc-500 to-cyan-500 bg-clip-text text-transparent text-4xl animate-[pulse_6s_linear_infinite]">
-          <Typewriter
-            words={memorizedHeroData?.typewriterWords ?? []}
-            loop={true}
-            cursor
-            cursorStyle="_"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-          />
+        <div className="py-10 bg-gradient-to-r from-orange-500 via-zinc-500 to-cyan-500 bg-clip-text text-transparent lg:text-4xl text-2xl animate-[pulse_6s_linear_infinite] text-center lg:text-left w-full">
+          {memorizedHeroData && (
+            <Typewriter
+              words={memorizedHeroData?.typewriterWords ?? []}
+              loop={true}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          )}
         </div>
 
-        <p className="welcome-message text-xl py-5">
+        <p className="welcome-message text-xl py-5 font-thin">
           {memorizedHeroData?.welcomeMessage}
         </p>
 
@@ -84,7 +89,10 @@ export default function HeroPage() {
           )}
         </div>
       </motion.article>
-      <article id="scene" className="w-1/2 flex justify-center items-center">
+      <article
+        id="scene"
+        className="lg:w-1/2 w-full flex justify-center items-center"
+      >
         <div className="w-full aspect-square ">
           <Suspense fallback={null}>
             {isLoaded ? (

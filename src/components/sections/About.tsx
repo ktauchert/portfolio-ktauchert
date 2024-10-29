@@ -66,7 +66,7 @@ const AboutPage = () => {
   const memoAboutData = useMemo(() => aboutData, [aboutData]);
 
   return (
-    <section id="about" className="min-h-screen snap-start">
+    <section id="about" className="min-h-screen ">
       <div className="page-title w-full">
         <h2 className="text-center text-4xl text-orange-600 text-bold uppercase tracking-wider my-20">
           About <span className="text-orange-500">Me</span>

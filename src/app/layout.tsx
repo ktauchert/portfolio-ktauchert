@@ -9,6 +9,16 @@ const montRegular = localFont({
   variable: "--mont-regular",
   weight: "300",
 });
+const montThin = localFont({
+  src: "./fonts/Montserrat-Thin.ttf",
+  variable: "--mont-thin",
+  weight: "100",
+});
+const montLight = localFont({
+  src: "./fonts/Montserrat-Light.ttf",
+  variable: "--mont-light",
+  weight: "200",
+});
 
 export const metadata: Metadata = {
   title: "KTauchert-Dev",
@@ -27,7 +37,7 @@ export default function RootLayout({
       className="scrollbar-thin scrollbar-thumb-cyan-600 scrollbar-track-[#171717] h-32 overflow-y-scroll"
     >
       <body
-        className={`${montRegular.className}  antialiased text-zinc-100 selection:bg-cyan-300 selection:text-cyan-950 flex flex-col `}
+        className={` ${montLight.className}  antialiased text-zinc-100 selection:bg-cyan-300 selection:text-cyan-950 flex flex-col `}
       >
         <div
           id="background"
@@ -36,7 +46,7 @@ export default function RootLayout({
         <header>
           <Navigation />
         </header>
-        <main className="lg:mx-auto flex flex-col justify-center max-w-[1280px] mx-5">
+        <main className="lg:mx-auto flex flex-col justify-center max-w-[1280px] mx-5 lg:mt-0 mt-[150px]">
           {children}
         </main>
         <footer>

@@ -4,7 +4,6 @@ import Cat from "./logo/CatLogo";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState("");
   const [screenRatio, setScreenRatio] = useState(0);
@@ -45,7 +44,7 @@ const Navigation = () => {
 
   return (
     <nav id="navigation" className={` ${screenRatio >= 1 ? "scrolling" : ""}`}>
-      <div className="max-w-[1280px] w-full flex justify-between h-full items-center">
+      <div className="max-w-[1280px] w-full flex lg:justify-between h-full lg:items-center lg:flex-row flex-col">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -53,13 +52,13 @@ const Navigation = () => {
             duration: 1,
             delay: 0,
           }}
-          className="brand-logo-name flex items-center"
+          className="brand-logo-name flex items-center lg:justify-start justify-between"
         >
           <Cat scale={0.6} />
           <Link href={`/#`}>
             <span
               id="brand-name"
-              className={`bg-clip-text text-transparent transition-all text-3xl`}
+              className={`bg-clip-text text-transparent transition-all text-3xl font-bold`}
               style={{
                 backgroundImage: `linear-gradient(to right, #06b6d4 ${screenRatio >= 99 ? 100 : screenRatio}%, #fb932c ${screenRatio < 1 ? 0 : screenRatio + 5 > 100 ? 100 : screenRatio + 5}%)`,
               }}
@@ -76,7 +75,7 @@ const Navigation = () => {
             delay: 0,
           }}
           id="nav-links"
-          className="flex gap-4 bg-gradient-to-r from-orange-500 via-zinc-500 to-cyan-500 bg-clip-text text-transparent text-xl my-auto h-full items-center"
+          className="flex gap-4 bg-gradient-to-r from-orange-500 via-zinc-500 to-cyan-500 bg-clip-text text-transparent text-xl my-auto h-full items-center justify-center"
         >
           <Link
             href={"/#about"}

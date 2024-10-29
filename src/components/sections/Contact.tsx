@@ -1,7 +1,6 @@
 "use client";
 import ContactForm from "../ContactForm";
 
-
 const Contact = () => {
   return (
     <section id="contact" className="min-h-[calc(100vh-160px)] mb-20">
@@ -11,7 +10,7 @@ const Contact = () => {
         </h2>
       </div>
       <div className="page-content flex flex-col justify-center items-center w-full overflow-hidden">
-        <div className="min-w-[50%]">
+        <div className="lg:w-[50%] w-full">
           <ContactForm />
         </div>
       </div>

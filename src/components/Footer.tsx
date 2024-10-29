@@ -32,7 +32,7 @@ const Footer = () => {
   );
   return (
     <>
-      <div className="w-full text-lg flex justify-evenly my-5">
+      <div className="w-full text-lg flex lg:justify-evenly my-5 flex-wrap">
         <div className="">Copyright 2024 - Karsten Tauchert</div>
         <Link
           className="flex items-center text-cyan-600 hover:text-orange-500"

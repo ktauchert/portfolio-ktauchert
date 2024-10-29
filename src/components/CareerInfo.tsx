@@ -19,8 +19,8 @@ function CareerInfo({
 }: Props) {
   return (
     <article className="my-10 text-zinc-100-">
-      <div className="time-info w-full flex">
-        <div className="w-1/4">
+      <div className="time-info w-full flex flex-col lg:flex-row">
+        <div className="lg:w-1/4 w-full">
           <span className="text-lg text-zinc-100">
             {from} - {until}
           </span>
@@ -40,7 +40,7 @@ function CareerInfo({
               opacity: 0,
             },
           }}
-          className="w-3/4"
+          className="w-full lg:w-3/4"
         >
           <h4 className="career-title text-cyan-400 text-lg font-semibold">
             {title} - <span className="italic text-zinc-100">{company}</span>
@@ -56,12 +56,12 @@ function CareerInfo({
             </ul>
           </div>
           <div className="career-stack">
-            <div className="inline-block">
+            <div className="inline-block flex flex-wrap">
               {stack &&
                 stack.map((item, idx) => (
                   <span
                     key={`stack-item${idx}`}
-                    className="mr-2 rounded bg-zinc-950 px-2 py-1 text-sm font-semibold text-cyan-600"
+                    className="mr-2 rounded bg-zinc-950 px-2 py-1 m-1 text-sm font-semibold text-cyan-600"
                   >
                     {item}
                   </span>
