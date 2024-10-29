@@ -4,16 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-const montRegular = localFont({
-  src: "./fonts/Montserrat-Regular.ttf",
-  variable: "--mont-regular",
-  weight: "300",
-});
-const montThin = localFont({
-  src: "./fonts/Montserrat-Thin.ttf",
-  variable: "--mont-thin",
-  weight: "100",
-});
+
 const montLight = localFont({
   src: "./fonts/Montserrat-Light.ttf",
   variable: "--mont-light",

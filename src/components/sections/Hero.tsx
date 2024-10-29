@@ -68,7 +68,7 @@ export default function HeroPage() {
         <div className="py-10 bg-gradient-to-r from-orange-500 via-zinc-500 to-cyan-500 bg-clip-text text-transparent lg:text-4xl text-2xl animate-[pulse_6s_linear_infinite] text-center lg:text-left w-full">
           {memorizedHeroData && (
             <Typewriter
-              words={memorizedHeroData?.typewriterWords ?? []}
+              words={memorizedHeroData?.typewriterWords ?? [""]}
               loop={true}
               cursor
               cursorStyle="_"
