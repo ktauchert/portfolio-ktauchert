@@ -5,7 +5,16 @@ import { aboutPage } from "./aboutPage";
 import { careerPage } from "./careerPage";
 import { projectPage } from "./projectPage";
 import { contactPage } from "./contactPage";
+import { blogPosts } from "./blogPosts";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [buttonType, heroPage, aboutPage, careerPage, projectPage, contactPage],
+  types: [
+    buttonType,
+    heroPage,
+    aboutPage,
+    careerPage,
+    projectPage,
+    contactPage,
+    blogPosts,
+  ],
 };
