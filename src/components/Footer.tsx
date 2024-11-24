@@ -40,16 +40,6 @@ const Footer = () => {
         >
           developer@ktauchert.de
         </Link>{" "}
-        <div className="">
-          {memoContactData && (
-            <IconLink
-              icon="cv"
-              text="Lebenslauf"
-              url={memoContactData.fileUrl as string}
-              customClasses="text-lg"
-            />
-          )}
-        </div>
         <Link
           className="flex items-center text-cyan-600 hover:text-orange-500"
           href={"impressum"}
