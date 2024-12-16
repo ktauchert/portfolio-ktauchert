@@ -17,7 +17,7 @@ html {
     @apply w-[1280px];
   }
   #navigation {
-    @apply fixed top-0 w-full min-h-16 flex flex-col justify-center transition-all items-center;
+    @apply fixed top-0 w-full flex flex-col justify-center transition-all items-center h-[42px];
     &.scrolling {
       @apply bg-zinc-100/20 backdrop-blur-sm z-10;
     }

@@ -54,7 +54,7 @@ const Navigation = () => {
           }}
           className="brand-logo-name flex items-center md:justify-start justify-between"
         >
-          <Cat scale={0.6} />
+          <Cat scale={0.4} />
           <Link href={`/#`}>
             <span
               id="brand-name"
